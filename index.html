@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A responsive image gallery built with HTML, CSS, and vanilla JavaScript.">
+    <title>Simple Image Gallery</title>
     <link rel="stylesheet" href="style.css">
-    <title>Gallary</title>
 </head>
 <body>
-    <div class="gallary">
-        <div class="photos" id = 'upperPhotos'>
+    <main class="gallery">
+        <h1>Simple Image Gallery</h1>
+        <p class="instructions">Click or use the keyboard on the upper thumbnails. Hover over or focus the lower thumbnails.</p>
 
-        </div>
-        <div class="main">
-            <img src="images/1.jpeg" name = "bigp" alt="main">
-        </div>
-        <div class="photos" id = 'lowerPhotos'>
+        <div class="photos" id="upperPhotos" aria-label="Click-to-select thumbnails"></div>
 
-        </div>        
-    </div>
+        <div class="main-photo">
+            <img src="images/1.jpeg" id="featuredImage" alt="Selected gallery image 1">
+        </div>
+
+        <div class="photos" id="lowerPhotos" aria-label="Preview-on-hover thumbnails"></div>
+    </main>
+
     <script src="index.js"></script>
 </body>
 </html>
