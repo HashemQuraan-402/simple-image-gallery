@@ -1,37 +1,42 @@
-let up = document.getElementById('upperPhotos');
-let low = document.getElementById('lowerPhotos');
-let big = document.getElementsByName('bigp')[0];
+const upperPhotos = document.getElementById('upperPhotos');
+const lowerPhotos = document.getElementById('lowerPhotos');
+const featuredImage = document.getElementById('featuredImage');
 
-let photo = [];
+function selectImage(event) {
+    const selectedThumbnail = event.currentTarget;
+    featuredImage.src = selectedThumbnail.src;
+    featuredImage.alt = `Selected gallery image ${selectedThumbnail.dataset.imageNumber}`;
+}
 
-onload = _=>{
-
-    // Create all photos and add event listeners
-    for(let i = 0; i < 12; i++){
-        photo[i] = document.createElement('img');
-        photo[i].src = `images/${(i % 6) + 1}.jpeg`;
-        
-        // Add to appropriate container
-        if(i < 6) {
-            up.appendChild(photo[i]);
-            photo[i].addEventListener('click', clickAdder);
-        } else {
-            low.appendChild(photo[i]);
-            photo[i].addEventListener('mouseover', clickAdderOver);
-        }
-        
-        // Add event listeners immediately
-        
-        
+function selectImageWithKeyboard(event) {
+    if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        selectImage(event);
     }
-} 
-
-
-function clickAdder(){
-    big.src = this.src;
 }
 
-function clickAdderOver(){
-    big.src = this.src;
+function createThumbnail(position) {
+    const imageNumber = (position % 6) + 1;
+    const thumbnail = document.createElement('img');
+
+    thumbnail.src = `images/${imageNumber}.jpeg`;
+    thumbnail.alt = `Gallery thumbnail ${imageNumber}`;
+    thumbnail.dataset.imageNumber = imageNumber;
+    thumbnail.tabIndex = 0;
+    thumbnail.setAttribute('role', 'button');
+    thumbnail.setAttribute('aria-label', `Show image ${imageNumber}`);
+    thumbnail.addEventListener('keydown', selectImageWithKeyboard);
+    thumbnail.addEventListener('focus', selectImage);
+
+    if (position < 6) {
+        thumbnail.addEventListener('click', selectImage);
+        upperPhotos.appendChild(thumbnail);
+    } else {
+        thumbnail.addEventListener('pointerenter', selectImage);
+        lowerPhotos.appendChild(thumbnail);
+    }
 }
 
+for (let index = 0; index < 12; index += 1) {
+    createThumbnail(index);
+}
