@@ -2,6 +2,10 @@
 
 A responsive image gallery built with HTML, CSS, and vanilla JavaScript. It generates thumbnail elements dynamically and lets users change the featured image through click, hover, focus, or keyboard interaction.
 
+## Live Demo
+
+[View the live project](https://hashemquraan-402.github.io/simple-image-gallery/)
+
 ## Features
 
 - Dynamically generated thumbnail rows
@@ -58,7 +62,6 @@ The gallery is a front-end DOM exercise. Images are bundled with the project, an
 - Add previous and next controls
 - Add a lightbox view
 - Add automated accessibility and browser tests
-- Deploy a live GitHub Pages demonstration
 
 ## Asset Notice
 
