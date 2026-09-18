@@ -24,7 +24,7 @@ No installation or build step is required.
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/HashemQuraan-402/Simple-Gallary.git
+   git clone https://github.com/HashemQuraan-402/simple-image-gallery.git
    ```
 
 2. Open the cloned folder.
@@ -33,7 +33,7 @@ No installation or build step is required.
 ## Project Structure
 
 ```text
-Simple-Gallary/
+simple-image-gallery/
 ├── images/
 │   ├── 1.jpeg
 │   ├── 2.jpeg
@@ -70,4 +70,3 @@ The bundled images are used for educational demonstration. Verify their license 
 
 - [GitHub](https://github.com/HashemQuraan-402)
 - [LinkedIn](https://www.linkedin.com/in/hashem-quraan-b561453ab)
-
